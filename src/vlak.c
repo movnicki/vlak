@@ -2,7 +2,7 @@
 
 VlakWindow vlak_window;
 TTFFont vlak_ttf_font;
-#if FONT_DATA_INSIDE
+#ifdef FONT_DATA_INSIDE
 extern unsigned char firacode_regular[];
 extern unsigned int firacode_regular_len;
 #endif
@@ -497,7 +497,7 @@ void vlak_ttf_font_load(char *path, u32 size)
 #else
     if (path == NULL)
     {
-#if FONT_DATA_INSIDE
+#ifdef FONT_DATA_INSIDE
         error = FT_New_Memory_Face(vlak_ttf_font.library, firacode_regular, firacode_regular_len, 0, &vlak_ttf_font.face);
 #else
         fprintf(stderr, "No Font Found...\nPlease add font or activate #define FONT_DATA_INSIDE\n");
@@ -1137,7 +1137,7 @@ void vlak_init(u16 window_width, u16 window_height, char *font_path)
 
 #endif
 
-#if FONT_DATA_INSIDE
+#ifdef FONT_DATA_INSIDE
 unsigned char firacode_regular[] = {
   0x00, 0x01, 0x00, 0x00, 0x00, 0x12, 0x01, 0x00, 0x00, 0x04, 0x00, 0x20,
   0x44, 0x53, 0x49, 0x47, 0x00, 0x00, 0x00, 0x01, 0x00, 0x04, 0x6b, 0x50,
